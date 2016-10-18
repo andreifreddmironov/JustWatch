@@ -1,0 +1,29 @@
+#Options +FollowSymLinks
+#Redirect 301 	/404.html	http://www.rigexpert.com/404.php 
+
+#ErrorDocument 404 /404.php
+
+DirectoryIndex index.php 
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+<ifModule mod_headers.c> 
+  <filesMatch "\.(rss)$"> 
+    Header set Content-Type "text/xml" 
+  </filesMatch> 
+
+#  <filesMatch "\.(pdf)$"> 
+#    Header set Content-Type "application/octet-stream" 
+#  </filesMatch> 
+
+</ifModule>
+
+
+# Product links
+
+Redirect /aa-30/ http://www.rigexpert.com/index?s=aa54
+
+#ini_set("extension","sockets.so");
